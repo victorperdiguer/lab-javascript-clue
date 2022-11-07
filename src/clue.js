@@ -101,12 +101,27 @@ const weaponsArray = [
 
 // ITERATION 2
 
-function selectRandom() {}
+function selectRandom(list) {
+    //random number generator between 0 and array length
+    const randNum = Math.random() * (list.length);
+    //it's decimal, we need to turn it into an integer
+    return list[Math.floor(randNum)];
+}
 
-function pickMystery() {}
+function pickMystery() {
+    const mystery = {
+        suspect: selectRandom(suspectsArray),
+        weapon: selectRandom(weaponsArray),
+        room: selectRandom(roomsArray)
+    }
+    return mystery;
+}
 
 
 // ITERATION 3
 
-function revealMystery() {}
+function revealMystery(envelope) {
+    const reveal = `${envelope.suspect.firstName} ${envelope.suspect.lastName} killed Mr. Boddy using the ${envelope.weapon.name} in the ${envelope.room.name}!`
+    return reveal;
+}
 
